@@ -18,6 +18,9 @@ Work in progress
 
 ![](images/Reconstruction_bobineuse_V3_5.JPG)
 
+Everything that goes around the Leonardo's board
+
+![](schematics/Bobineuse_schema_petit.png)
 
 All comments are welcome
 
