@@ -1,5 +1,5 @@
-Preamp_micro_USB
-================
+Bobineuse_V3
+============
 
 The project describes a stand-alone coil winder
 
@@ -18,5 +18,3 @@ PCB & schema are designed with Kicad
 All comments are welcome
 
 Totof
-
-
