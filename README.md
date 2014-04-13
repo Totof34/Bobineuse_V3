@@ -14,6 +14,10 @@ PCB & schema are designed with Kicad
 
 ![](schematics/Moteur.gif)
 
+Work in progress
+
+![](images/Reconstruction_bobineuse_V3_5.JPG)
+
 
 All comments are welcome
 
