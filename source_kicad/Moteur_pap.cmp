@@ -1,0 +1,465 @@
+Cmp-Mod V01 Created by CvPcb (2014-01-10 BZR 4619)-product date = lun. 17 mars 2014 19:26:22 CET
+
+BeginCmp
+TimeStamp = /52F78190;
+Reference = C1;
+ValeurCmp = 220µ;
+IdModule  = Capacitors:CP_16x25mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F7830C;
+Reference = C2;
+ValeurCmp = 10µ;
+IdModule  = Capacitors:CP_8x21mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F74BD9;
+Reference = C3;
+ValeurCmp = 100n;
+IdModule  = Discret:C2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F781AC;
+Reference = C4;
+ValeurCmp = 10µ;
+IdModule  = Capacitors:CP_8x21mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F752C8;
+Reference = C5;
+ValeurCmp = 100µ;
+IdModule  = Capacitors:CP_10x21mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/531C45AB;
+Reference = C6;
+ValeurCmp = 10n;
+IdModule  = Discret:C2;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/531C45C2;
+Reference = C7;
+ValeurCmp = 10n;
+IdModule  = Discret:C2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F752A0;
+Reference = D1;
+ValeurCmp = ZENER24V;
+IdModule  = Discret:DO-41;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/531C3798;
+Reference = IC1;
+ValeurCmp = TLP785;
+IdModule  = Opto-Devices:OptocouplerModul_FinderType34Point81-DC;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/531C37AA;
+Reference = IC2;
+ValeurCmp = TLP785;
+IdModule  = Opto-Devices:OptocouplerModul_FinderType34Point81-DC;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F78611;
+Reference = K1;
+ValeurCmp = POT_VIT;
+IdModule  = Connect:SIL-3;
+EndCmp
+
+BeginCmp
+TimeStamp = /52FBDDE4;
+Reference = K2;
+ValeurCmp = ILS1;
+IdModule  = Connect:SIL-3;
+EndCmp
+
+BeginCmp
+TimeStamp = /52FBDDD9;
+Reference = K3;
+ValeurCmp = ILS2;
+IdModule  = Connect:SIL-3;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/5327449E;
+Reference = K4;
+ValeurCmp = CONN_3;
+IdModule  = Connect:SIL-3;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F6AA64;
+Reference = P1;
+ValeurCmp = CONN_B+;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F74D1C;
+Reference = P2;
+ValeurCmp = IN1_2;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F74D2C;
+Reference = P3;
+ValeurCmp = IN3_4;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F7882C;
+Reference = P4;
+ValeurCmp = WIPPER;
+IdModule  = Connect:SIL-1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F6AC48;
+Reference = P5;
+ValeurCmp = +5V;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F6AAFC;
+Reference = P6;
+ValeurCmp = MOT1;
+IdModule  = Connect:bornier2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F6AB0C;
+Reference = P7;
+ValeurCmp = MOT2;
+IdModule  = Connect:bornier2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F74FD6;
+Reference = P8;
+ValeurCmp = ALIM_MOT;
+IdModule  = Connect:bornier2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52FE605B;
+Reference = P9;
+ValeurCmp = ILS1;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F7889E;
+Reference = P10;
+ValeurCmp = PB1;
+IdModule  = Connect:SIL-1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F789ED;
+Reference = P11;
+ValeurCmp = PB3;
+IdModule  = Connect:SIL-1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F786FD;
+Reference = P12;
+ValeurCmp = PB1;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F789DE;
+Reference = P13;
+ValeurCmp = PB3;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F7AE68;
+Reference = P14;
+ValeurCmp = PB2;
+IdModule  = Connect:SIL-1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F78A28;
+Reference = P15;
+ValeurCmp = PB4;
+IdModule  = Connect:SIL-1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52FE608F;
+Reference = P16;
+ValeurCmp = ILS2;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F7AE59;
+Reference = P17;
+ValeurCmp = PB2;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F78A19;
+Reference = P18;
+ValeurCmp = PB4;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52FA4B54;
+Reference = P19;
+ValeurCmp = +5V;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52FA4DBB;
+Reference = P20;
+ValeurCmp = LVO;
+IdModule  = Connect:SIL-1;
+EndCmp
+
+BeginCmp
+TimeStamp = /52FA4B63;
+Reference = P21;
+ValeurCmp = +5V;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52FA4E70;
+Reference = P22;
+ValeurCmp = +5V;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52FBE228;
+Reference = P23;
+ValeurCmp = TST;
+IdModule  = Connect:1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = /52FBE23A;
+Reference = P24;
+ValeurCmp = TST;
+IdModule  = Connect:1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/531C4607;
+Reference = P25;
+ValeurCmp = CONN_4;
+IdModule  = Connect:SIL-4;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/531F6109;
+Reference = P26;
+ValeurCmp = TST;
+IdModule  = Wire_Pads:SolderWirePad_single_1-2mmDrill;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/531F612E;
+Reference = P27;
+ValeurCmp = TST;
+IdModule  = Wire_Pads:SolderWirePad_single_1-2mmDrill;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/53273E58;
+Reference = P28;
+ValeurCmp = BOUTON1;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/53273E74;
+Reference = P29;
+ValeurCmp = BOUTON2;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/53273E7F;
+Reference = P30;
+ValeurCmp = BOUTON3;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/53273E94;
+Reference = P31;
+ValeurCmp = BOUTON4;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/53273EA4;
+Reference = P32;
+ValeurCmp = BOUTON5;
+IdModule  = Connect:SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F782FA;
+Reference = R1;
+ValeurCmp = 220;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F752B4;
+Reference = R2;
+ValeurCmp = 10K;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F77CF5;
+Reference = R3;
+ValeurCmp = 10K;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F78714;
+Reference = R4;
+ValeurCmp = 10K;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F789E4;
+Reference = R5;
+ValeurCmp = 10K;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F77D00;
+Reference = R6;
+ValeurCmp = 10K;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F7AE5F;
+Reference = R7;
+ValeurCmp = 10K;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F78A1F;
+Reference = R8;
+ValeurCmp = 10K;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/531C4572;
+Reference = R9;
+ValeurCmp = 390;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/531C4589;
+Reference = R10;
+ValeurCmp = 390;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/531D53F3;
+Reference = R11;
+ValeurCmp = 4K7;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/531D5403;
+Reference = R12;
+ValeurCmp = 4K7;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/53273EB6;
+Reference = R13;
+ValeurCmp = 330;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/53273ECD;
+Reference = R14;
+ValeurCmp = 82;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/53273EDD;
+Reference = R15;
+ValeurCmp = 150;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/53273EED;
+Reference = R16;
+ValeurCmp = 270;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /531C378F/53273EFD;
+Reference = R17;
+ValeurCmp = 1K;
+IdModule  = Discret:R4-LARGE_PADS;
+EndCmp
+
+BeginCmp
+TimeStamp = /52FA4C7E;
+Reference = RV1;
+ValeurCmp = POT10K;
+IdModule  = Potentiometers:Potentiometer_Bourns_3296W_3-8Zoll_Inline_ScrewUp;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F6AAA4;
+Reference = U1;
+ValeurCmp = LM7805CT;
+IdModule  = Transistors_TO-220:TO-220_Neutral123_Vertical_LargePads;
+EndCmp
+
+BeginCmp
+TimeStamp = /52F74EB8;
+Reference = U2;
+ValeurCmp = ULN2003;
+IdModule  = Sockets_DIP:DIP-16__300_ELL;
+EndCmp
+
+EndListe
