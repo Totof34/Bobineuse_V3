@@ -20,7 +20,7 @@ Work in progress
 
 ![](images/Reconstruction_bobineuse_V3_5.JPG)
 
-The prototype of the display and the button
+The prototype of the display and the buttons
 
 ![](images/Proto_facade1.JPG)
 
