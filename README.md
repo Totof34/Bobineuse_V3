@@ -12,11 +12,17 @@ http://www.audiyofan.org/forum/viewtopic.php?f=73&t=7176&start=105
 
 PCB & schema are designed with Kicad
 
+the motor part uses a DC motor with a home made supply described below
+
 ![](schematics/Moteur.gif)
 
 Work in progress
 
 ![](images/Reconstruction_bobineuse_V3_5.JPG)
+
+The prototype of the display and the button
+
+![](images/Proto_facade1.JPG)
 
 Everything that goes around the Leonardo's board
 
