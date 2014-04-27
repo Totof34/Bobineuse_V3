@@ -63,8 +63,8 @@ Ce programme gère l'affichage de la bobineuse et la gestion moteur
 #include <EEPROM.h>
 
 // Définition des PIN
-#define Fourche_A  3     
-#define Fourche_B  2 
+#define Fourche_A  2     
+#define Fourche_B  1 
 
 // Définition des variables
 // Mémorise l'état des sorties A et B
@@ -140,7 +140,7 @@ int numerosauvegarde;
 
 
 // initialize the library with the numbers of the interface pins
-LiquidCrystal lcd(13, 5, 10, 9, 8, 6);
+LiquidCrystal lcd(12, 11, 10, 9, 8, 7);
 
 // initialize the stepper library on pins 8 through 11:
 // 48 is the number of steps per revolution,change this to fit the number of steps per revolution
@@ -150,7 +150,7 @@ LiquidCrystal lcd(13, 5, 10, 9, 8, 6);
 // Pin 15 Brun  55SI-25DAWC, Orange ST35,
 // Pin 14 Jaune 55SI-25DAWC, Jaune  ST35,
 // Pin 13 Bleu  55SI-25DAWC, Bleu   ST35,
-Stepper myStepper(48,12,4,11,7);
+Stepper myStepper(48,6,5,4,3);
 
 // initialisation du menu
 char menu_text [6][7][17] = {
@@ -231,7 +231,7 @@ void loop() {
   
   Selection();
   
-  if (choixmenu == 1)
+  if (choixmenu == 0)
     {
            
     Comptage();
@@ -254,7 +254,7 @@ void loop() {
            
     }
     
-  if (choixmenu == 0)
+  if (choixmenu == 1)
     {
     
     Gestionboutons ();
@@ -363,7 +363,17 @@ void AfficheCompteur()
 // Fonction de paramétrage de l'affichage du nombre de spires
 void Affichenombre()
 {
-  if (Nbspire < 10)
+  if ((Nbspire <= -10) && (Nbspire > -100))
+  {
+   lcd.setCursor(11,0);
+   lcd.print(Nbspire,1); 
+  }
+  if ((Nbspire < 0) && (Nbspire > -10))
+  {
+   lcd.setCursor(12,0);
+   lcd.print(Nbspire,1); 
+  }
+  if (Nbspire >= 0)
   {
    lcd.setCursor(13,0);
    lcd.print(Nbspire,1); 
