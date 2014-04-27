@@ -22,7 +22,7 @@ Work in progress
 
 The prototype of the display and the buttons
 
-![](images/Proto_facade1.JPG)
+![](images/Facade_bobineuse_V3_montee.JPG)
 
 Everything that goes around the Leonardo's board
 
