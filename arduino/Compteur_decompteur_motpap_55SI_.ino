@@ -2,14 +2,14 @@
   LiquidCrystal Library - 
   
   Le circuit:
- * FORK A to digital pin 3
- * FORK B to digital pin 2
- * LCD RS pin to digital pin 13
- * LCD Enable pin to digital pin 5
+ * FORK A to digital pin 2
+ * FORK B to digital pin 1
+ * LCD RS pin to digital pin 12
+ * LCD Enable pin to digital pin 11
  * LCD D4 pin to digital pin 10
  * LCD D5 pin to digital pin 9
  * LCD D6 pin to digital pin 8
- * LCD D7 pin to digital pin 6
+ * LCD D7 pin to digital pin 7
  * LCD R/W pin to ground
  * 10K resistor:
  * ends to +5V and ground
@@ -82,6 +82,7 @@ int Sensspirecouche = 0;
 int Sensdebutcouche = 1;
 int Senschangecote = 1;
 int Avancechangecote = 0;
+int Position = 0;
 
 int lcd_keyA1     = 0;
 boolean choixmenu = 0;
@@ -108,7 +109,7 @@ int lcd_key     = 0;
 int adc_key_in  = 0;
 int cumul_spire = 0;
 int cumul =0;
-int reste_compteur = 0;
+float reste_compteur = 0;
 int retour_compteur = 0;
 int cumul_couche = 0;
 
@@ -153,24 +154,27 @@ LiquidCrystal lcd(12, 11, 10, 9, 8, 7);
 Stepper myStepper(48,6,5,4,3);
 
 // initialisation du menu
-char menu_text [6][7][17] = {
+char menu_text [7][8][17] = {
 {
-{"Nb de spires  =>"}, {"Millier       =>"}, {"Centaine      =>"},{"Dizaine       =>"},   {"Unite         =>"},{"Dizieme         "},         {"null"}
+{"Nb de spires  =>"}, {"Millier       =>"}, {"Centaine      =>"}, {"Dizaine       =>"}, {"Unite         =>"}, {"Dizieme         "},             {"null"}, {"null"}
 },   
 {
-{"Cumul compt   =>"}, {"Comptage      =>"}, {"Decomptage      "},           {"null"},             {"null"},               {"null"},         {"null"}
+{"Cumul compt   =>"}, {"Comptage      =>"}, {"Decomptage      "},             {"null"},             {"null"},             {"null"},             {"null"}, {"null"}
 },
 {
-{"Spire/couche  =>"}, {"Centaine      =>"}, {"Dizaine       =>"}, {"Unite         =>"},{"Debut Gauche  =>"},  {"Debut Droite    "},         {"null"}
+{"Spire/couche  =>"}, {"Centaine      =>"}, {"Dizaine       =>"}, {"Unite         =>"}, {"Debut Gauche  =>"}, {"Debut Droite    "},             {"null"}, {"null"}
 },
 {
-{"Guide fil     =>"}, {"+ 1/2 tour    =>"}, {"- 1/2 tour    =>"}, {"+ 1/8 tour    =>"},{"- 1/8 tour    =>"},  {"Change de cote  "},         {"null"}
+{"Guide fil     =>"}, {"- 1/2 tour    =>"}, {"+ 1/2 tour    =>"}, {"- 1/8 tour    =>"}, {"+ 1/8 tour    =>"}, {"Change de cote  "},             {"null"}, {"null"}
 },
 {
-{"Compteur      =>"}, {"+ 1/10        =>"}, {"- 1/10          "},             {"null"},           {"null"},               {"null"},         {"null"}
+{"Position init =>"}, {"Enregistrer   =>"}, {"Retour a 0    =>"}, {"- 10 tours    =>"}, {"+10 tours     =>"}, {"- 1 tour      =>"}, {"+ 1 tour      =>"}, {"null"}
+},
+{
+{"Compteur      =>"}, {"+ 1/10        =>"}, {"- 1/10          "},             {"null"},             {"null"},             {"null"},             {"null"}, {"null"}
 },      
 {
-{"Sauvegarde    =>"}, {"Choix numero  =>"}, {"Sauver        =>"}, {"Recharger       "},           {"null"},               {"null"},         {"null"}
+{"Sauvegarde    =>"}, {"Choix numero  =>"}, {"Sauver        =>"}, {"Recharger       "},             {"null"},             {"null"},             {"null"}, {"null"}
 }   
 };
 
@@ -178,24 +182,27 @@ char menu_text [6][7][17] = {
 // Faire une fonction de parcours de tableau et de chargement des valeurs
 // Puis faire un enregistrement directement dans le tableau qui donnera
 // l’adresse de la case mémoire utilisé comme moyen de réutilisation
-int menu_valeur [6][7][3] = {
+int menu_valeur [7][8][3] = {
 {
-{-15},  {0}, {0}, {0},  {0},  {0},  {-1}
+{-21},  {0}, {0}, {0},  {0},  {0},  {-1},{-1}
 },  
 {
-{-1}, {-2}, {-3}, {-1}, {-1}, {-1}, {-1}
+{-1}, {-2}, {-3}, {-1}, {-1}, {-1}, {-1},{-1}
 },
 {
-{-16}, {0},  {0},  {0}, {-4}, {-5}, {-1}
+{-22}, {0},  {0},  {0}, {-4}, {-5}, {-1},{-1}
 },
 {
-{-1}, {-6}, {-7}, {-8}, {-9}, {-10},{-1}
+{-1}, {-6}, {-7}, {-8}, {-9}, {-10},{-1},{-1}
 },
 {
-{-1}, {-11}, {-12}, {-1},{-1},{-1}, {-1}
+{-1},{-11},{-12},{-13},{-14},{-15},{-16},{-1}
 },
 {
-{-1}, {0},{-13}, {-14}, {-1}, {-1}, {-1}
+{-1}, {-17}, {-18}, {-1},{-1},{-1}, {-1},{-1}
+},
+{
+{-1}, {0},{-19}, {-20}, {-1}, {-1}, {-1},{-1}
 }
 };
   
@@ -251,6 +258,8 @@ void loop() {
     Gestionstep();
         
     Avanceguidefil();
+    
+    Positioncourante();
            
     }
     
@@ -335,9 +344,9 @@ void AfficheCompteur()
   // (note: line 1 is the second row, since counting begins with 0):
   lcd.setCursor(0,0);
   lcd.print("Compteur   ");
-  lcd.setCursor(10,0);
+  lcd.setCursor(9,0);
   // reset the screen:
-  lcd.print("      ");
+  lcd.print("       ");
   // set the cursor to column 12, line 0
   Affichenombre(); 
   }
@@ -348,10 +357,10 @@ void AfficheCompteur()
   // set the cursor to column 12, line 0
   // (note: line 1 is the second row, since counting begins with 0):
   lcd.setCursor(0,0);
-  lcd.print("Reste      ");
-  lcd.setCursor(10,0);
+  lcd.print("Reste     ");
+  lcd.setCursor(9,0);
   // reset the screen:
-  lcd.print("      ");
+  lcd.print("       ");
   // set the cursor to column 12, line 0
   Affichenombre(); 
   }
@@ -386,12 +395,13 @@ void Affichenombre()
   if (Nbspire >= 100)
   {
    lcd.setCursor(11,0);
-   lcd.print(Nbspire,1); 
+   lcd.print(Nbspire,1);
   }
   if (Nbspire >= 1000)
   {
    lcd.setCursor(10,0);
-   lcd.print(Nbspire,1); 
+   lcd.print(Nbspire,1);
+   delay(5); 
   }
 }
 
@@ -471,6 +481,14 @@ void Gestionstep()
 /*******************************************************
 *******************************************************/
 
+// Fonction qui enregistre la position du guide fil 
+void Positioncourante()
+{
+  Position = Position + Steps;
+}
+
+/*******************************************************
+*******************************************************/
 // Fonction pour entrer ou sortir du menu
 int Selection()
 {
@@ -525,7 +543,7 @@ void Gestionboutons ()
  {
  if (choix == 0)
  {
- if (droit < 6)
+ if (droit < 7)
  {
  droit++;
  }
@@ -579,7 +597,7 @@ void Gestionboutons ()
 
  case btnUP:
  {
- if (up < 5)
+ if (up < 6)
  {
  up++;
  }
@@ -673,8 +691,7 @@ void Gestionvaleur ()
   }
  if (*menu_valeur[up][droit] == -1)
   {
-  lcd.setCursor(0,1);
-  lcd.print("                ");
+   Effaceligne2 ();
   }
  if (*menu_valeur[up][droit] == -2)// Savoir si on décompte
   {
@@ -728,10 +745,10 @@ void Gestionvaleur ()
   {
     if (choix == 1)
      {
-     myStepper.step(24*Sensdebutcouche);
-     choix = !choix;
      lcd.setCursor(0,1);
-     lcd.print("    +24 pas     ");
+     lcd.print("    -1/2 tour   ");
+     myStepper.step(-24*Sensdebutcouche);
+     choix = !choix;
      delay(500);
      Effaceligne2 ();
      }    
@@ -740,10 +757,10 @@ void Gestionvaleur ()
   {
     if (choix == 1)
      {
-     myStepper.step(-24*Sensdebutcouche);
-     choix = !choix;
      lcd.setCursor(0,1);
-     lcd.print("    -24 pas     ");
+     lcd.print("   +1/2 tour    ");
+     myStepper.step(24*Sensdebutcouche);
+     choix = !choix;
      delay(500);
      Effaceligne2 ();
      }    
@@ -752,10 +769,10 @@ void Gestionvaleur ()
   {
     if (choix == 1)
      {
-     myStepper.step(6*Sensdebutcouche);
-     choix = !choix;
      lcd.setCursor(0,1);
-     lcd.print("    +6  pas     ");
+     lcd.print("    -1/8 tour   ");
+     myStepper.step(-6*Sensdebutcouche);
+     choix = !choix;
      delay(500);
      Effaceligne2 ();
      }    
@@ -764,10 +781,10 @@ void Gestionvaleur ()
   {
     if (choix == 1)
      {
-     myStepper.step(-6*Sensdebutcouche);
-     choix = !choix;
      lcd.setCursor(0,1);
-     lcd.print("    -6  pas     ");
+     lcd.print("    +1/8 tour   ");
+     myStepper.step(6*Sensdebutcouche);
+     choix = !choix;
      delay(500);
      Effaceligne2 ();
      }    
@@ -787,7 +804,77 @@ void Gestionvaleur ()
      Effaceligne2 ();
      }    
   }
- if (*menu_valeur[up][droit] == -11)// Avance le compteur de 0.1 tours
+ if (*menu_valeur[up][droit] == -11)// Enregistre la position initiale
+  {
+    if (choix == 1)
+     {
+     Position = 0;
+     choix = !choix;
+     lcd.setCursor(0,1);
+     lcd.print("  Enregistree  ");
+     delay(500);
+     Effaceligne2 ();
+     }    
+  }
+ if (*menu_valeur[up][droit] == -12)// Retourne à la position initiale
+  {
+    if (choix == 1)
+     {
+     choix = !choix;
+     lcd.setCursor(0,1);
+     lcd.print("  Retour à 0  ");
+     myStepper.step(-Position);
+     Compteur = 0;
+     Effaceligne2 ();
+     }    
+  }
+ if (*menu_valeur[up][droit] == -13)// Recule de 10 tours
+  {
+    if (choix == 1)
+     {
+     lcd.setCursor(0,1);
+     lcd.print("    -10 tours   ");
+     myStepper.step(-480*Sensdebutcouche);
+     choix = !choix;
+     Effaceligne2 ();
+     }    
+  }
+ if (*menu_valeur[up][droit] == -14)// Avance de 10 tours
+  {
+    if (choix == 1)
+     {
+     lcd.setCursor(0,1);
+     lcd.print("    +10 tours   ");
+     myStepper.step(480*Sensdebutcouche);
+     choix = !choix;
+     Effaceligne2 ();
+     }    
+  }
+ if (*menu_valeur[up][droit] == -15)// Recule de 1 tour
+  {
+    if (choix == 1)
+     {
+     lcd.setCursor(0,1);
+     lcd.print("     -1 tour    ");
+     myStepper.step(-48*Sensdebutcouche);
+     choix = !choix;
+     delay(500);
+     Effaceligne2 ();
+     }    
+  }
+ if (*menu_valeur[up][droit] == -16)// Avance de 1 tour
+  {
+    if (choix == 1)
+     {
+     lcd.setCursor(0,1);
+     lcd.print("     +1 tour    ");
+     myStepper.step(48*Sensdebutcouche);
+     choix = !choix;
+     delay(500);
+     Effaceligne2 ();
+     }    
+  }
+ if (*menu_valeur[up][droit] == -17)// Avance le compteur de 0.1 tour
   {
     if (choix == 1)
      {
@@ -795,12 +882,12 @@ void Gestionvaleur ()
      choix = !choix;
      choixmenu = !choixmenu;
      lcd.setCursor(0,1);
-     lcd.print("    +0.1 tour   ");
+     lcd.print("    +0.1 spire  ");
      delay(500);
      Effaceligne2 ();
      }    
   }
- if (*menu_valeur[up][droit] == -12)// Recule le compteur de 0.1 tours
+ if (*menu_valeur[up][droit] == -18)// Recule le compteur de 0.1 tour
   {
     if (choix == 1)
      {
@@ -808,12 +895,12 @@ void Gestionvaleur ()
      choix = !choix;
      choixmenu = !choixmenu;
      lcd.setCursor(0,1);
-     lcd.print("    -0.1 tour   ");
+     lcd.print("    -0.1 spire  ");
      delay(500);
      Effaceligne2 ();
      }    
   }
- if (*menu_valeur[up][droit] == -13)// Sauve en EEPROM
+ if (*menu_valeur[up][droit] == -19)// Sauve en EEPROM
   {
     if (choix == 1)
      {
@@ -831,7 +918,7 @@ void Gestionvaleur ()
      Effaceligne2 ();
      }    
   }
- if (*menu_valeur[up][droit] == -14)// Recharge depuis l'EEPROM
+ if (*menu_valeur[up][droit] == -20)// Recharge depuis l'EEPROM
   {
     if (choix == 1)
      {
@@ -849,17 +936,17 @@ void Gestionvaleur ()
      Effaceligne2 ();
      }    
   }
- if (*menu_valeur[up][droit] == -15)
+ if (*menu_valeur[up][droit] == -21)
   {
   cumul_spire = ((*menu_valeur[0][1])*10000)+((*menu_valeur[0][2])*1000)+((*menu_valeur[0][3])*100)+((*menu_valeur[0][4])*10)+(*menu_valeur[0][5]);
   reste_compteur = cumul_spire*0.1;
   Effaceligne2 ();
   lcd.setCursor(0,1);
-  lcd.print(reste_compteur);
-  lcd.setCursor(4,1);
-  lcd.print("            ");
+  lcd.print(reste_compteur,1);
+  lcd.setCursor(6,1);
+  lcd.print("           ");
   }
- if (*menu_valeur[up][droit] == -16)
+ if (*menu_valeur[up][droit] == -22)
   {
   cumul_couche = ((*menu_valeur[2][1])*100)+((*menu_valeur[2][2])*10)+(*menu_valeur[2][3]);
   Effaceligne2 ();
@@ -975,7 +1062,7 @@ void Recharge()
 
 void Choixsauvegarde ()
 {
- numerosauvegarde =  (*menu_valeur[5][1]);
+ numerosauvegarde =  (*menu_valeur[6][1]);
  switch (numerosauvegarde)
   {
   case 0:
