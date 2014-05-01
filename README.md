@@ -31,15 +31,24 @@ Everything that goes around the Leonardo's board
 Here the function than my program include and which seems to me appropriate
 
  1° automatic counting and uncounting
+ 
  2° counting from zero or down from a specified number of turns
+ 
  3° initial point or initial carcass start recordable and reminder 
+ 
  4° guide wire enslaved on the up / down counting
+ 
  5° automatic reversing guide wire depending on the number of turns per layer and change side
+ 
  6° manual correction of errors in advance of the guide wire, losses step essentially
+ 
  7° Manual correction of counting errors
+ 
  8° management parameters by a "management" menu and a second separate part for the counting itself
+ 
  9° recordings of 10 different configurations to facilitate the winding of several transformers,
     by recording the primary and secondary sections separately and recall stored data in memory
+    
 10° display menus on 16x2 characters LCD
 
 Of course my Leonardo's board also allows PC control if you wanted to, but I prefer a
