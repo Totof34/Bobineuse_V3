@@ -240,7 +240,7 @@ void loop() {
   
   if (choixmenu == 0)
     {
-           
+     
     Comptage();
     
     Compteimpulsion();
@@ -271,7 +271,7 @@ void loop() {
     Gestionvaleur ();
     
     Affichagemenutext();
-    
+   
     delay(20);
     
     }
@@ -396,6 +396,7 @@ void Affichenombre()
   {
    lcd.setCursor(11,0);
    lcd.print(Nbspire,1);
+   //delay(5); 
   }
   if (Nbspire >= 1000)
   {
@@ -825,6 +826,12 @@ void Gestionvaleur ()
      lcd.print("  Retour à 0  ");
      myStepper.step(-Position);
      Compteur = 0;
+     Position = 0;
+     Compteurspcouche = 0;
+     for (int i=1; i <= 5; i++)
+     {
+     (*menu_valeur[0][i]) = 0;
+     }
      Effaceligne2 ();
      }    
   }

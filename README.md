@@ -16,10 +16,6 @@ the motor part uses a DC motor with a home made supply described below
 
 ![](schematics/Moteur.gif)
 
-Work in progress
-
-![](images/Reconstruction_bobineuse_V3_5.JPG)
-
 The prototype of the display and the buttons
 
 ![](images/Facade_bobineuse_V3_montee.JPG)
@@ -55,6 +51,16 @@ Of course my Leonardo's board also allows PC control if you wanted to, but I pre
 standalone machine
 
 See in the arduino folder for the sketch
+
+Work in progress
+
+![](images/Reconstruction_bobineuse_V3_5.JPG)
+
+Detail of the guidewire
+
+![](images/Chariot_guide_fil_1.JPG)
+
+![](images/Ecrou_guide_fil.JPG)
 
 All comments are welcome
 
