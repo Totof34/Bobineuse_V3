@@ -62,6 +62,13 @@ Detail of the guidewire
 
 ![](images/Ecrou_guide_fil.JPG)
 
+Implementation of electronic boards in progress
+
+![](images/Implantation_carte_arduino_1.JPG)
+
+![](images/Implantation_carte_arduino_2.JPG)
+
+
 All comments are welcome
 
 Totof
