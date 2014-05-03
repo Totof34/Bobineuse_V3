@@ -82,6 +82,10 @@ Work in progress
 
 ![](images/Reconstruction_bobineuse_V3_11.JPG)
 
+![](images/Reconstruction_bobineuse_V3_12.JPG)
+
+![](images/Reconstruction_bobineuse_V3_13.JPG)
+
 All comments are welcome
 
 Totof
