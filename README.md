@@ -52,10 +52,6 @@ standalone machine
 
 See in the arduino folder for the sketch
 
-Work in progress
-
-![](images/Reconstruction_bobineuse_V3_5.JPG)
-
 Detail of the guidewire
 
 ![](images/Chariot_guide_fil_1.JPG)
@@ -68,6 +64,23 @@ Implementation of electronic boards in progress
 
 ![](images/Implantation_carte_arduino_2.JPG)
 
+Work in progress
+
+![](images/Reconstruction_bobineuse_V3_1.JPG)
+
+![](images/Reconstruction_bobineuse_V3_2.JPG)
+
+![](images/Reconstruction_bobineuse_V3_3.JPG)
+
+![](images/Reconstruction_bobineuse_V3_5.JPG)
+
+![](images/Reconstruction_bobineuse_V3_7.JPG)
+
+![](images/Reconstruction_bobineuse_V3_8.JPG)
+
+![](images/Reconstruction_bobineuse_V3_9.JPG)
+
+![](images/Reconstruction_bobineuse_V3_11.JPG)
 
 All comments are welcome
 
