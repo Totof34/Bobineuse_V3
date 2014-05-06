@@ -20,6 +20,10 @@ The prototype of the display and the buttons
 
 ![](images/Facade_bobineuse_V3_montee.JPG)
 
+The optical fork's disc 
+
+![](build/Disque_fourche_optique.JPG)
+
 Everything that goes around the Leonardo's board
 
 ![](schematics/Bobineuse_schema_petit.png)
