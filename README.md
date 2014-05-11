@@ -94,6 +94,11 @@ Work in progress
 
 ![](images/Reconstruction_bobineuse_V3_17.JPG)
 
+The coilwinder in function 
+
+![](images/Reconstruction_bobineuse_V3_18.JPG)
+
+![](images/Reconstruction_bobineuse_V3_19.JPG)
 All comments are welcome
 
 Totof
