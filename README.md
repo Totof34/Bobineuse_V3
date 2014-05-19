@@ -99,6 +99,15 @@ The coilwinder in function
 ![](images/Reconstruction_bobineuse_V3_18.JPG)
 
 ![](images/Reconstruction_bobineuse_V3_19.JPG)
+
+Addition of a carrier for high copper coil
+
+![](images/Reconstruction_bobineuse_V3_20.JPG)
+
+![](images/Reconstruction_bobineuse_V3_21.JPG)
+
+![](images/Reconstruction_bobineuse_V3_22.JPG)
+
 All comments are welcome
 
 Totof
